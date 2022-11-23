@@ -1,7 +1,16 @@
 import React from "react";
+import { useGlobalContext } from "../context/AppContext";
+import TourItem from "./TourItem";
 
 function TourList() {
-  return <div>TourList</div>;
+  const { tours } = useGlobalContext();
+  return (
+    <div>
+      {tours.map((item) => {
+        return <TourItem key={item.id} item={item} />;
+      })}
+    </div>
+  );
 }
 
 export default TourList;
